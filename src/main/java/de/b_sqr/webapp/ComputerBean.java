@@ -4,51 +4,52 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 
-@Named(value = "printerBean")
+@Named(value = "computerBean")
 @SessionScoped
-public class PrinterBean implements Serializable {
+public class ComputerBean implements Serializable {
   //-------------------------------------------------------------------------
   //  Constructor(s)
   //-------------------------------------------------------------------------
 
-  public PrinterBean() {
+  public ComputerBean() {
   }
 
   //-------------------------------------------------------------------------
   //  Var(s), Get / Set
   //-------------------------------------------------------------------------
   private Model model = new Model();
-  private Printer printer = new Printer(model.sizeOfPrinter());
+  private Computer computer = new Computer(model.sizeOfComputer());
 
-  public Printer getPrinter() {
-    return printer;
+  public Computer getComputer() {
+    return computer;
   }
 
-  public void setPrinter(Printer printer) {
-    this.printer = printer;
+  public void setComputer(Computer computer) {
+    this.computer = computer;
   }
 
   public Model getModel() {
     return model;
   }
 
-  public void resetPrinter() {
-    this.printer = new Printer(model.sizeOfPrinter());
+  public void resetComputer() {
+    this.computer = new Computer(model.sizeOfComputer());
   }
 
   //-------------------------------------------------------------------------
   //  Method(s)
   //-------------------------------------------------------------------------
-  public void addPrinter() {
-    model.addPrinter(printer);
-    resetPrinter();
+  public void addComputer() {
+    model.addComputer(computer);
+    resetComputer();
   }
 
-  public void deletePrinter(Printer p) {
-    model.removePrinter(p);
+  public void deleteComputer(Computer c) {
+    model.removeComputer(c);
   }
 
   public Device.Status[] getStatuses() {
     return Device.Status.getStatuses();
   }
+
 }

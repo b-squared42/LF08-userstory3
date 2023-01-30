@@ -6,85 +6,87 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
-        <title>Printer Page</title>
+        <title>Computer Page</title>
     </h:head>
     <h:body style="background: #695444">
         <h:form id="testForm">
 
             <p:growl id="infoMsg" showDetail="true"/>
 
-            <h1 style="color: #9bcc60">Druckerverwaltung » Benjamin Boll</h1>
+            <h1 style="color: #9bcc60">Rechnerverwaltung » Benjamin Boll</h1>
             <br/><br/>
 
             <p:panelGrid columns="2" styleClass="ui-panelgrid-blank ui-fluid">
 
                 <p:outputLabel for="pID" value="ID"/>
-                <p:inputText id="pID" value="#{printerBean.printer.id}" readonly="true"/>
+                <p:inputText id="pID" value="#{computerBean.computer.id}" readonly="true"/>
 
                 <p:outputLabel for="pSerialNumber" value="Seriennummer"/>
-                <p:inputText id="pSerialNumber" value="#{printerBean.printer.seriennummer}"/>
+                <p:inputText id="pSerialNumber" value="#{computerBean.computer.seriennummer}"/>
 
                 <p:outputLabel for="pModel" value="Modell"/>
-                <p:inputText id="pModel" value="#{printerBean.printer.modell}"/>
+                <p:inputText id="pModel" value="#{computerBean.computer.modell}"/>
 
                 <p:outputLabel for="pManufacturer" value="Hersteller"/>
-                <p:inputText id="pManufacturer" value="#{printerBean.printer.hersteller}"/>
+                <p:inputText id="pManufacturer" value="#{computerBean.computer.hersteller}"/>
 
                 <p:outputLabel for="pStatus" value="Status"/>
-                <p:selectOneMenu id="pStatus" value="#{printerBean.printer.status}" dynamic="true">
-                    <f:selectItems value="#{printerBean.getStatuses()}" var="status" itemValue="#{status}" itemLabel="#{status.label}"/>
+                <p:selectOneMenu id="pStatus" value="#{computerBean.computer.status}" dynamic="true">
+                    <f:selectItems value="#{computerBean.getStatuses()}" var="status" itemValue="#{status}" itemLabel="#{status.label}"/>
                 </p:selectOneMenu>
 
                 <p:outputLabel for="pWarranty" value="Herstellergarantie (Monate)"/>
-                <p:inputNumber id="pWarranty" value="#{printerBean.printer.herstellergarantie}" decimalPlace="0" minValue="0" maxValue="999"/>
+                <p:inputNumber id="pWarranty" value="#{computerBean.computer.herstellergarantie}" decimalPlace="0" minValue="0" maxValue="999"/>
 
                 <p:outputLabel for="pDeliveryDate" value="Lieferdatum"/>
-                <p:datePicker id="pDeliveryDate" value="#{printerBean.printer.lieferdatum}" showIcon="true"/>
+                <p:datePicker id="pDeliveryDate" value="#{computerBean.computer.lieferdatum}" showIcon="true"/>
 
-                <p:outputLabel for="pColor" value="Farbfunktion"/>
-                <p:selectBooleanCheckbox id="pColor" value="#{printerBean.printer.farbdruckfunktion}"/>
+                <p:outputLabel for="pCPU" value="CPU"/>
+                <p:inputText id="pCPU" value="#{computerBean.computer.cpu}"/>
 
-                <p:outputLabel for="pTechnology" value="Technologie"/>
-                <p:selectOneMenu id="pTechnology" value="#{printerBean.printer.technologie}" dynamic="true">
-                    <f:selectItems value="#{printerBean.printer.technologies}" var="technologie" itemValue="#{technologie}" itemLabel="#{technologie.label}"/>
+                <p:outputLabel for="pRAM" value="Arbeitsspeicher (GB)"/>
+                <p:inputNumber id="pRAM" value="#{computerBean.computer.arbeitsspeicher}" decimalPlace="0" minValue="0" maxValue="999"/>
+
+                <p:outputLabel for="pOS" value="Betriebssystem"/>
+                <p:inputText id="pOS" value="#{computerBean.computer.betriebssystem}"/>
+
+                <p:outputLabel for="pType" value="Typ"/>
+                <p:selectOneMenu id="pType" value="#{computerBean.computer.typ}" dynamic="true">
+                    <f:selectItems value="#{computerBean.computer.types}" var="type" itemValue="#{type}" itemLabel="#{type.label}"/>
                 </p:selectOneMenu>
 
-                <p:outputLabel for="pPaperformat" value="Max. Papierformat"/>
-                <p:selectOneMenu id="pPaperformat" value="#{printerBean.printer.papierformatmax}" dynamic="true">
-                    <f:selectItems value="#{printerBean.printer.paperformats}" var="paperformat" itemValue="#{paperformat}" itemLabel="#{paperformat.label}"/>
-                </p:selectOneMenu>
+                <p:outputLabel for="pGraphicscard" value="Grafikkarte"/>
+                <p:inputText id="pGraphicscard" value="#{computerBean.computer.grafikkarte}"/>
 
-                <p:outputLabel for="pPrintsOverall" value="Insgesamt gedruckt (Seitenanzahl)"/>
-                <p:inputText id="pPrintsOverall" value="#{printerBean.printer.druckseitengesamt}" readonly="true"/>
+                <p:outputLabel for="pSsdCapacity" value="SSD Festplattengröße (GB)"/>
+                <p:inputNumber id="pSsdCapacity" value="#{computerBean.computer.festplatte_ssd}" decimalPlace="0" minValue="0" maxValue="999"/>
 
-                <p:outputLabel for="pRemainingCapacity" value="Restkapazität Betriebsmittel (Seitenanzahl)"/>
-                <p:inputText id="pRemainingCapacity" value="#{printerBean.printer.druckseitengesamt}" readonly="true"/>
 
-                <p:outputLabel for="pCapacity" value="Kapazität des Betriebsmittels (Seitenanzahl)"/>
-                <p:inputText id="pCapacity" value="#{printerBean.printer.kapazitaetbetriebsmittel}" readonly="true"/>
+                <p:outputLabel for="pHddCapacity" value="HDD Festplattengröße (GB)"/>
+                <p:inputNumber id="pHddCapacity" value="#{computerBean.computer.festplatte_hdd}" decimalPlace="0" minValue="0" maxValue="999"/>
 
             </p:panelGrid>
             <br/>
 
-            <p:commandButton value="Speichern" action="#{printerBean.addPrinter()}" update=":testForm" style="width: 180px;" />
+            <p:commandButton value="Speichern" action="#{computerBean.addComputer()}" update=":testForm" style="width: 180px;" />
             &nbsp;
-            <p:commandButton value="Abbrechen" action="#{printerBean.resetPrinter()}" update=":testForm" style="width: 180px;" />
+            <p:commandButton value="Abbrechen" action="#{computerBean.resetComputer()}" update=":testForm" style="width: 180px;" />
             <br/><br/><br/><br/>
 
-            <p:dataTable value="#{printerBean.model.printerList}" var="printer" style="width: 700px;">
+            <p:dataTable value="#{computerBean.model.computerList}" var="computer" style="width: 700px;">
                 <p:column headerText="ID">
-                    <h:outputText value="#{printer.id}" />
+                    <h:outputText value="#{computer.id}" />
                 </p:column>
                 <p:column headerText="Hersteller">
-                    <h:outputText value="#{printer.hersteller}" />
+                    <h:outputText value="#{computer.hersteller}" />
                 </p:column>
                 <p:column headerText="Modell">
-                    <h:outputText value="#{printer.modell}" />
+                    <h:outputText value="#{computer.modell}" />
                 </p:column>
                 <p:column headerText="Optionen">
-                    <p:commandLink value="bearbeiten" action="#{printerBean.setPrinter(printer)}" update=":testForm"/>
+                    <p:commandLink value="bearbeiten" action="#{computerBean.setComputer(computer)}" update=":testForm"/>
                     <br/>
-                    <p:commandLink value="l&ouml;schen" action="#{printerBean.deletePrinter(printer)}" update=":testForm"/>
+                    <p:commandLink value="l&ouml;schen" action="#{computerBean.deleteComputer(computer)}" update=":testForm"/>
                 </p:column>
             </p:dataTable>
 

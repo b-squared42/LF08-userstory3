@@ -9,35 +9,52 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * @author boll.benjamin
  */
 public class Model {
-    private List<Printer> printerList = new ArrayList();
+  private List<Printer> printerList = new ArrayList();
+  private List<Computer> computerList = new ArrayList();
 
-    public void add(Printer p) {
-        if (!printerList.contains(p))
-            printerList.add(p);
-    }
-    public void get(int i) {
-        printerList.get(i);
-    }
-    public void remove(Printer p) {
-        printerList.remove(p);
-    }
-    public int size() {
-        return printerList.size();
-    }
+  public void addPrinter(Printer p) {
+    if (!printerList.contains(p)) printerList.add(p);
+  }
+
+  public void addComputer(Computer c) {
+    if (!computerList.contains(c)) computerList.add(c);
+  }
+
+  public Printer getPrinter(int i) {
+    return printerList.get(i);
+  }
+
+  public Computer getComputer(int i) {
+    return computerList.get(i);
+  }
+
+  public void removePrinter(Printer p) {
+    printerList.remove(p);
+  }
+
+  public void removeComputer(Computer c) {
+    computerList.remove(c);
+  }
+
+  public int sizeOfPrinter() {
+    return printerList.size();
+  }
+
+  public int sizeOfComputer() {
+    return computerList.size();
+  }
 
 
-    public List<Printer> getPrinterList() {
-        return printerList;
-    }
+  public List<Printer> getPrinterList() {
+    return printerList;
+  }
 
-
-
-
-
+  public List<Computer> getComputerList() {
+    return computerList;
+  }
 
 
 }
