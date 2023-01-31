@@ -1,4 +1,6 @@
-package de.b_sqr.webapp;
+package de.b_sqr.webapp.devices;
+
+import de.b_sqr.webapp.devices.Device;
 
 import java.time.LocalDate;
 
@@ -31,8 +33,8 @@ public class Computer extends Device {
   private int festplatte_ssd;
   private int festplatte_hdd;
 
-  public Computer(int id) {
-    this.id = id;
+  public Computer() {
+    this.id = anzahl++;
     this.status = Device.Status.OK;
 
   }

@@ -5,6 +5,9 @@
  */
 package de.b_sqr.webapp;
 
+import de.b_sqr.webapp.devices.Computer;
+import de.b_sqr.webapp.devices.Printer;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,14 +40,6 @@ public class Model {
 
   public void removeComputer(Computer c) {
     computerList.remove(c);
-  }
-
-  public int sizeOfPrinter() {
-    return printerList.size();
-  }
-
-  public int sizeOfComputer() {
-    return computerList.size();
   }
 
 

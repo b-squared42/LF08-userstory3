@@ -1,4 +1,6 @@
-package de.b_sqr.webapp;
+package de.b_sqr.webapp.devices;
+
+import de.b_sqr.webapp.devices.Device;
 
 import javax.swing.*;
 import java.time.LocalDate;
@@ -40,15 +42,15 @@ public class Printer extends Device {
   private int restkapazitaet;
   private int kapazitaetbetriebsmittel;
 
-  public Printer(int id) {
-    this.id = id;
+  public Printer() {
+    this.id = anzahl++;
     this.status = Device.Status.OK;
     this.kapazitaetbetriebsmittel = 200;
     this.restkapazitaet = 200;
   }
 
   public Printer(int id, String seriennummer, String modell, String hersteller, Device.Status status, int herstellergarantie, LocalDate lieferdatum, Technology technologie, boolean farbdruckfunktion, Paperformat papierformatmax) {
-    this(id);
+    this();
     this.seriennummer = seriennummer;
     this.modell = modell;
     this.hersteller = hersteller;

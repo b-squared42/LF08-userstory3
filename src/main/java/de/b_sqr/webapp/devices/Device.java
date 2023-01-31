@@ -1,4 +1,4 @@
-package de.b_sqr.webapp;
+package de.b_sqr.webapp.devices;
 
 import java.time.LocalDate;
 
