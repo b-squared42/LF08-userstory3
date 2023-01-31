@@ -21,7 +21,6 @@ public abstract class Device {
     }
   }
 
-  protected static int anzahl;
   protected int id;
   protected String seriennummer;
   protected String modell;
