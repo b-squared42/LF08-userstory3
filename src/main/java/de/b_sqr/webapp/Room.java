@@ -1,6 +1,6 @@
 package de.b_sqr.webapp;
 
-import de.b_sqr.webapp.devices.Computer;
+import de.b_sqr.webapp.devices.Device;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +21,7 @@ public class Room {
       return label;
     }
   }
+
   public Type[] getTypes() {
     return Type.values();
   }
@@ -31,23 +32,23 @@ public class Room {
   private String bezeichnung;
   private Type typ;
 
-  private List<Computer> computerList;
+  private List<Device> deviceList;
 
   public Room() {
     this.id = anzahl++;
-    computerList = new ArrayList<>();
+    deviceList = new ArrayList<>();
   }
 
-  public void addHardware(Computer c) {
-    if (Objects.isNull(c)) return;
-    computerList.add(c);
-    c.setRaum(this);
+  public void addHardware(Device d) {
+    if (Objects.isNull(d)) return;
+    deviceList.add(d);
+    d.setRaum(this);
   }
 
-  public void removeHardware(Computer c) {
-    if (Objects.isNull(c)) return;
-    computerList.remove(c);
-    c.setRaum(null);
+  public void removeHardware(Device d) {
+    if (Objects.isNull(d)) return;
+    deviceList.remove(d);
+    d.setRaum(null);
   }
 
   public int getId() {
@@ -74,11 +75,11 @@ public class Room {
     this.typ = typ;
   }
 
-  public List<Computer> getComputerList() {
-    return computerList;
+  public List<Device> getDeviceList() {
+    return deviceList;
   }
 
-  public void setComputerList(List<Computer> computerList) {
-    this.computerList = computerList;
+  public void setDeviceList(List<Device> deviceList) {
+    this.deviceList = deviceList;
   }
 }

@@ -1,6 +1,9 @@
 package de.b_sqr.webapp.devices;
 
+import de.b_sqr.webapp.Room;
+
 import java.time.LocalDate;
+import java.util.Objects;
 
 public abstract class Device {
   public enum Status {
@@ -28,6 +31,8 @@ public abstract class Device {
   protected Status status;
   protected int herstellergarantie;
   protected LocalDate lieferdatum;
+
+  protected Room raum;
 
   public abstract String toString();
 
@@ -89,5 +94,18 @@ public abstract class Device {
 
   public void setHerstellergarantie(int herstellergarantie) {
     this.herstellergarantie = herstellergarantie;
+  }
+
+
+  public boolean hasRaum() {
+    return Objects.nonNull(this.raum);
+  }
+
+  public Room getRaum() {
+    return raum;
+  }
+
+  public void setRaum(Room raum) {
+    this.raum = raum;
   }
 }

@@ -1,5 +1,7 @@
 package de.b_sqr.webapp.devices;
 
+import de.b_sqr.webapp.Room;
+
 import javax.swing.*;
 import java.time.LocalDate;
 
@@ -50,7 +52,7 @@ public class Printer extends Device {
     this.restkapazitaet = 200;
   }
 
-  public Printer(String seriennummer, String modell, String hersteller, Device.Status status, int herstellergarantie, LocalDate lieferdatum, Technology technologie, boolean farbdruckfunktion, Paperformat papierformatmax) {
+  public Printer(String seriennummer, String modell, String hersteller, Device.Status status, int herstellergarantie, LocalDate lieferdatum, Technology technologie, boolean farbdruckfunktion, Paperformat papierformatmax, Room raum) {
     this();
     this.seriennummer = seriennummer;
     this.modell = modell;
@@ -61,6 +63,7 @@ public class Printer extends Device {
     this.technologie = technologie;
     this.farbdruckfunktion = farbdruckfunktion;
     this.papierformatmax = papierformatmax;
+    this.raum = raum;
   }
 
   public void wechsleBetriebsmittel(int kapazitaet) {

@@ -34,15 +34,13 @@ public class Computer extends Device {
   private String grafikkarte;
   private int festplatte_ssd;
   private int festplatte_hdd;
-  private Room raum;
 
   public Computer() {
     this.id = anzahl++;
     this.status = Device.Status.OK;
-
   }
 
-  public Computer(String seriennummer, String modell, String hersteller, Device.Status status, int herstellergarantie, LocalDate lieferdatum, String cpu, int arbeitsspeicher, String betriebssystem, String typ, String grafikkarte, int festplatte_ssd, int festplatte_hdd) {
+  public Computer(String seriennummer, String modell, String hersteller, Device.Status status, int herstellergarantie, LocalDate lieferdatum, String cpu, int arbeitsspeicher, String betriebssystem, String typ, String grafikkarte, int festplatte_ssd, int festplatte_hdd, Room raum) {
     this();
     this.seriennummer = seriennummer;
     this.modell = modell;
@@ -57,10 +55,7 @@ public class Computer extends Device {
     this.grafikkarte = grafikkarte;
     this.festplatte_ssd = festplatte_ssd;
     this.festplatte_hdd = festplatte_hdd;
-  }
-
-  public boolean hasRaum() {
-    return Objects.nonNull(this.raum);
+    this.raum = raum;
   }
 
   @Override
@@ -124,11 +119,4 @@ public class Computer extends Device {
     this.festplatte_hdd = festplatte_hdd;
   }
 
-  public Room getRaum() {
-    return raum;
-  }
-
-  public void setRaum(Room raum) {
-    this.raum = raum;
-  }
 }
