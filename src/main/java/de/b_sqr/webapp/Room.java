@@ -21,6 +21,9 @@ public class Room {
       return label;
     }
   }
+  public Type[] getTypes() {
+    return Type.values();
+  }
 
   private static int anzahl = 0;
 
@@ -40,6 +43,7 @@ public class Room {
     computerList.add(c);
     c.setRaum(this);
   }
+
   public void removeHardware(Computer c) {
     if (Objects.isNull(c)) return;
     computerList.remove(c);

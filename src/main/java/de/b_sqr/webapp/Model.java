@@ -17,6 +17,7 @@ import java.util.List;
 public class Model {
   private List<Printer> printerList = new ArrayList();
   private List<Computer> computerList = new ArrayList();
+  private List<Room> roomList = new ArrayList();
 
   public void addPrinter(Printer p) {
     if (!printerList.contains(p)) printerList.add(p);
@@ -24,6 +25,10 @@ public class Model {
 
   public void addComputer(Computer c) {
     if (!computerList.contains(c)) computerList.add(c);
+  }
+
+  public void addRoom(Room r) {
+    if (!roomList.contains(r)) roomList.add(r);
   }
 
   public Printer getPrinter(int i) {
@@ -34,12 +39,20 @@ public class Model {
     return computerList.get(i);
   }
 
+  public Room getRoom(int i) {
+    return roomList.get(i);
+  }
+
   public void removePrinter(Printer p) {
     printerList.remove(p);
   }
 
   public void removeComputer(Computer c) {
     computerList.remove(c);
+  }
+
+  public void removeRoom(Room r) {
+    roomList.remove(r);
   }
 
 
@@ -49,6 +62,10 @@ public class Model {
 
   public List<Computer> getComputerList() {
     return computerList;
+  }
+
+  public List<Room> getRoomList() {
+    return roomList;
   }
 
 
